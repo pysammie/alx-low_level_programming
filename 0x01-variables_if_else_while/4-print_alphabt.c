@@ -12,6 +12,7 @@ int main(void)
 	char alpha_missing[] = "abcdfghijklmnoprstuvwxyz";
 
 	int i;
+
 	i = 0;
 	while (i < 24)
 	{
