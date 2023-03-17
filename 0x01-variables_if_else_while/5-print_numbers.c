@@ -10,7 +10,7 @@
 int main(void)
 {
 	char number[] = "0123456789";
-	int i
+	int i;
 
 	i = 0;
 	while (i < 10)
