@@ -9,13 +9,14 @@
  */
 int main(void)
 {
-	char c;
+	char alpha_reverse[] = "zyxwvutsrqponmlkjihgfedcba";
+	int i;
 
-	c = "z";
-	while (c >= "a")
+	i = 0;
+	while (i < 26)
 	{
-		putchar(c);
-		c--;
+		putchar(alpha_reverse[i]);
+		i++;
 	}
 	putchar('\n');
 	return (0);
