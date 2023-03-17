@@ -9,14 +9,15 @@
  */
 int main(void)
 {
-	char i;
+	char number[] = "0123456789";
+	int i
 
 	i = 0;
 	while (i < 10)
 	{
-		printf("%c", i);
+		putchar(number[i]);
 		i++;
 	}
-	printf('\n');
+	putchar('\n');
 	return (0);
 }
