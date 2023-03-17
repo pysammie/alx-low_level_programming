@@ -9,13 +9,12 @@
  */
 int main(void)
 {
-	char numberz[] = "0123456789";
 	int i;
 
-	i = 0;
-	while (i < 10)
+	i = 48;
+	while (i < 58)
 	{
-		putchar(numberz[i]);
+		putchar(i);
 		i++;
 	}
 	putchar('\n');
