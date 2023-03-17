@@ -9,6 +9,8 @@
  */
 int main(void)
 {
+	char z;
+	char a;
 	char c;
 
 	c = z;
