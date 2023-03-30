@@ -29,17 +29,23 @@ char *_strncpy(char *dest, char *src, int n)
 
 	if (n >= len_src)
 	{
-		for (i = 0; i < len_src; i++)
+		if (n <= len_dest)
 		{
-			dest[i] = src[i];
+			for (i = 0; i <= len_src; i++)
+			{
+				dest[i] = src[i];
+			}
+			dest[i] = '\0';
 		}
-		dest[i] = '\0';
 	}
 	else
 	{
-		for (i = 0; i < n; i++)
+		if (n <= len_dest)
 		{
-			dest[i] = src[i];
+			for (i = 0; i < n; i++)
+			{
+				dest[i] = src[i];
+			}
 		}
 	}
 	return (dest);
