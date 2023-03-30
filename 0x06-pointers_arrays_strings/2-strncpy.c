@@ -31,11 +31,14 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		if (n <= len_dest)
 		{
-			for (i = 0; i <= len_src; i++)
+			for (i = 0; i < len_src; i++)
 			{
 				dest[i] = src[i];
 			}
-			dest[i] = '\0';
+			for (i = len_src; i < n; i++)
+			{
+				dest[i] = '\0';
+			}
 		}
 	}
 	else
