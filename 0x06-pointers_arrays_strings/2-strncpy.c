@@ -29,7 +29,7 @@ char *_strncpy(char *dest, char *src, int n)
 
 	if (n >= len_src)
 	{
-		if (n <= len_dest)
+		if (n < len_dest)
 		{
 			for (i = 0; i < len_src; i++)
 			{
