@@ -45,6 +45,6 @@ char *str_concat(char *s1, char *s2)
 				*(ptr + i + j) = s2[j];
 			}
 		}
-	}	
+	}
 	return (ptr);
 }
