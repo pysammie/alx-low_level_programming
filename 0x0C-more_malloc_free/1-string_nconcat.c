@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -8,6 +7,7 @@
  *
  * @s1: string 1
  * @s2: string 2
+ * @n: amount of characters to copy from s2
  *
  * Return: pointer to new string
  */
@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len_s1 = strlen(s1);
 	len_s2 = strlen(s2);
 
-	if (n < len_s2)
+	if (n < strlen(s2))
 		len_s2 = n;
 
 	ptr = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
@@ -42,5 +42,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 
 	ptr[i] = '\0';
+
 	return (ptr);
 }
