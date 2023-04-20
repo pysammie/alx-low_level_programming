@@ -3,7 +3,7 @@
 /**
  * print_strings - prints strings
  *
- * @separator - string separator
+ * @separator: string separator
  * @n: no of strings passed
  */
 void print_strings(const char *separator, const unsigned int n, ...)
@@ -13,7 +13,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *str;
 
 	va_start(args, n);
-	for(i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		str = va_arg(args, char *);
 		if (str == NULL)
