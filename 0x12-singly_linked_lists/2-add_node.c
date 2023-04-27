@@ -5,6 +5,7 @@
  * add_node - adds node at beginning of linked list
  *
  * @head: pointer to pointer to linked list
+ * @str: new node
  *
  * Return: pointer to linked list
  */
