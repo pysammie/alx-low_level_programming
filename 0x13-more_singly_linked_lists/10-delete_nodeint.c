@@ -29,13 +29,13 @@ int delete_nodeint_at_index(listint_t **head,
 		while (index > 0 && current != NULL)
 		{
 			previous = current;
-			current = current->link;
+			current = current->next;
 			index--;
 		}
 		if (current == NULL)
 			return (-1);
 
-		previous->link = current->link;
+		previous->next = current->next;
 		free(current);
 		current = NULL;
 	}

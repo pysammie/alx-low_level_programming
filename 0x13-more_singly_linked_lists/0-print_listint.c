@@ -10,7 +10,7 @@
 size_t print_listint(const listint_t *h)
 {
 	unsigned int count;
-	listint_t *ptr;
+	const listint_t *ptr;
 
 	count = 0;
 
@@ -22,7 +22,7 @@ size_t print_listint(const listint_t *h)
 
 	while (ptr != NULL)
 	{
-		printf("%d", ptr->n);
+		printf("%d\n", ptr->n);
 		count++;
 		ptr = ptr->next;
 	}

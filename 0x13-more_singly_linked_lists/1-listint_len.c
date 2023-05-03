@@ -11,7 +11,7 @@
 size_t listint_len(const listint_t *h)
 {
 	unsigned int count = 0;
-	listint_t *ptr = NULL;
+	const listint_t *ptr = NULL;
 
 	if (h == NULL)
 		printf("(nil)");
