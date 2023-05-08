@@ -14,7 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	ssize_t n;
-	char buffer[1024];
+	char buffer[5000];
 
 	if (filename == NULL)
 		return (0);
@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (fd == -1)
 		return (0);
-	
+
 	if (fd != -1)
 	{
 		n = read(fd, buffer, letters);
