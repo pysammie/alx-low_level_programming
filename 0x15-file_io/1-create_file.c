@@ -4,7 +4,7 @@
  * create_file - creates a file
  *
  * @filename: name of file
- * @text_content - file content
+ * @text_content: file content
  *
  * Return: 1(Success) or -1(Failure)
  */
@@ -27,7 +27,7 @@ int create_file(const char *filename, char *text_content)
 			return (1);
 		}
 	}
-	close (fd);
+	close(fd);
 
 	return (1);
 }
