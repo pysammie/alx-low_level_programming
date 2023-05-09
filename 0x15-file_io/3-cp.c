@@ -56,7 +56,7 @@ int cp(const char *file_from, const char *file_to)
 	char buffer[1024];
 
 	o = open(file_from, O_RDONLY);
-	w = open(file_to, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	w = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	if (o == -1)
 		return (-1);
@@ -69,7 +69,6 @@ int cp(const char *file_from, const char *file_to)
 			return (-1);
 
 		char_cp = write(w, buffer, char_read);
-
 		if (char_cp == -1)
 		return (-2);
 	}
