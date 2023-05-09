@@ -6,36 +6,30 @@
  * @filename: name of file
  * @text_content: content to append
  *
- * Return: 1(Success) or -1(Failure)
+ * Return: 1(Success) -1(Failure)
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd_toappend, fd_toread;
+	int fd, w, len = 0;
 
 	if (filename == NULL)
 		return (-1);
 
-	fd_toappend = open(filename, O_WRONLY | O_APPEND);
-
-	if (fd_toappend == -1)
-		return (-1);
-
-	if (write(fd_toappend, text_content, strlen(text_content)) == -1)
+	if (text_content != NULL)
 	{
-		return (-1);
-	}
-	if (text_content == NULL)
-	{
-		fd_toread = open(filename, O_RDONLY);
-
-		if (fd_toread == -1)
-			return (-1);
-
-		close(fd_toread);
-		return (1);
+		while (text_content[len] != '\0')
+		{
+			len++;
+		}
 	}
 
-	close(fd_toappend);
+	fd = open(filename, O_WRONLY | O_APPEND);
+	w = write(fd, text_content, len);
 
-	return (1);
+	if (fd == -1 || w == -1)
+		return (-1);
+
+	close(fd);
+
+	return (-1);
 }
