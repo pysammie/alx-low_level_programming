@@ -22,8 +22,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
+	{
 		close(fd);
 		return (0);
+	}
 
 	if (fd != -1)
 	{
@@ -38,8 +40,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			}
 		}
 		else
+		{
 			close(fd);
 			return (0);
+		}
 	}
 
 	close(fd);
