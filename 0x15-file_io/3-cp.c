@@ -16,8 +16,8 @@ void error_handle(int, int, char **);
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, file_close;
-	ssize_t char_read, char_cp;
+	int file_from, file_to;
+	ssize_t char_rdwr;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -29,26 +29,25 @@ int main(int ac, char **av)
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	error_handle(file_from, file_to, av);
 
-	char_read = 1024;
-	while (char_read == 1024)
+	char_rdwr = 1024;
+	while ((char_rdwr = read(file_from, buffer, 1024)) > 0)
 	{
-		char_read = read(file_from, buffer, 1024);
-		if (char_read == -1)
+		if (char_rdwr == -1)
 			error_handle(-1, 0, av);
 
-		char_cp = write(file_to, buffer, char_read);
-		if (char_cp == -1)
+		char_rdwr = write(file_to, buffer, char_rdwr);
+
+		if (char_rdwr == -1)
 			error_handle(0, -1, av);
 	}
 
-	file_close = close(file_from);
-	if (file_close == -1)
+	if (close(file_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
-	file_close = close(file_to);
-	if (file_close == -1)
+
+	if (close(file_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
