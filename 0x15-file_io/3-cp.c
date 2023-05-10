@@ -42,7 +42,7 @@ int main(int ac, char **av)
 			exit(99); }
 	}
 	if (char_rdwr == -1)
-	{	dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[0]);
+	{	dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
 		exit(98); }
 	if (close(file_from) == -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
@@ -51,5 +51,6 @@ int main(int ac, char **av)
 	if (close(file_to) == -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100); }
+
 	return (0);
 }
