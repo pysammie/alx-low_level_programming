@@ -26,7 +26,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	file_from = open(av[1], O_RDONLY);
-	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	error_handle(file_from, file_to, av);
 
 	char_read = 1024;
