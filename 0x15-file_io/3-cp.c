@@ -15,7 +15,7 @@
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, file_close;
+	int file_from, file_to;
 	ssize_t char_rdwr;
 	char buffer[1024];
 
