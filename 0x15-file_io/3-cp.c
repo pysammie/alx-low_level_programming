@@ -15,7 +15,7 @@
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to;
+	int file_from, file_to, file_close;
 	ssize_t char_rdwr;
 	char buffer[1024];
 
@@ -43,15 +43,13 @@ int main(int ac, char **av)
 		{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99); }
 	}
-	if (close(file_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
-	}
-	if (close(file_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
-		exit(100);
-	}
+	file_close = close(file_from);
+	if (file_close == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100); }
+	file_close = close(file_to);
+	if (file_close == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		exit(100); }
 	return (0);
 }
