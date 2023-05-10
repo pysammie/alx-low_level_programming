@@ -31,7 +31,6 @@ int main(int ac, char **av)
 	{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99); }
 
-	char_rdwr = 1024;
 	while ((char_rdwr = read(file_from, buffer, 1024)) > 0)
 	{
 		if (char_rdwr == -1)
